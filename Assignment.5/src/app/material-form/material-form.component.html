@@ -1,0 +1,71 @@
+<div class="card">
+    <div class="form">
+        <form [formGroup]="materialForm"(ngSubmit)="OnSubmit()">
+            <mat-form-field appearance="fill">
+                <mat-label>Fullname</mat-label>
+                <mat-icon matSuffix class="material-icon">people</mat-icon>
+                <input matInput placeholder="Enter FullName" formControlName = "fullName">
+                <mat-error *ngIf="materialForm.controls['fullName'].invalid && materialForm.controls['fullName'].hasError('required')">Minimum 6 characters required</mat-error>
+            </mat-form-field>
+            
+            <div class="container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <mat-icon matSuffix class="material-icon">email</mat-icon>
+                    <input matInput placeholder="domain@example.com" formControlName = "email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <mat-error *ngIf="materialForm.controls['email'].invalid && materialForm.controls['email'].hasError('required')">Please enter valid Email</mat-error>
+                </mat-form-field>
+            </div>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName = "password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="materialForm.controls['password'].invalid && materialForm.controls['password'].hasError('required')"> should contain alphabet & numbers only </mat-error>
+            </mat-form-field>
+    
+            <div>
+                <mat-radio-group aria-label="Select an option" formControlName = "gender">
+                    <mat-label>Gender</mat-label>
+                    <mat-radio-button value="M">Male</mat-radio-button>
+                    <mat-radio-button value="F">Female</mat-radio-button>
+                    <mat-error *ngIf="materialForm.controls['gender'].hasError('required') && materialForm.controls['gender'].touched">Please enter a value</mat-error>
+                  </mat-radio-group>
+            </div>
+    
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName = "dob">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="materialForm.controls['dob'].invalid && materialForm.controls['dob'].hasError('required')">Please select date</mat-error>
+                </mat-form-field>
+            </div>
+    
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Mobile No</mat-label>
+                    <mat-icon matSuffix class="material-icon">phone</mat-icon>
+                    <input matInput placeholder="1234567890" formControlName = "mobNo" required pattern="^[0-9]{10}$">
+                    <mat-error *ngIf="materialForm.controls['mobNo'].invalid && materialForm.controls['mobNo'].hasError('required')">Please enter Mobile No.</mat-error>
+                </mat-form-field>
+            </div>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Select</mat-label>
+                <mat-select formControlName = "skills">
+                  <mat-option value="Angular Basic">Angular Basic</mat-option>
+                  <mat-option value="Angular Advance">Angular Advance</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="materialForm.controls['skills'].invalid && materialForm.controls['skills'].hasError('required')">You must enter a value</mat-error>
+              </mat-form-field><br>
+    
+              <button mat-raised-button color="accent" >Submit</button>
+    
+        </form>
+    </div>
+</div>

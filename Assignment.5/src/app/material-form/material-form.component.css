@@ -1,0 +1,22 @@
+.container mat-form-field + mat-form-field {
+    margin-left: 6px;
+  }
+  
+  .container-right-align {
+    text-align: right;
+  }
+  
+  input.container-right-align::-webkit-outer-spin-button,
+  input.container-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+.form{
+    text-align: center;
+    background-color:cadetblue;
+    
+}
+
+input[type=text] {
+    background-color:burlywood;
+    color: white;
+  }
