@@ -1,0 +1,35 @@
+.heading {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.value{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .minMargin {
+    margin: 8px;
+  }
+  
+  .minWidth {
+    max-width: 180px;
+    width: 100%;
+  }
+
+  .result {
+    margin: 0 8px;
+  }
+  w
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px 0;
+    max-width: 284px;
+  }
+  
+  .result .valueLabel {
+    font-weight: 600;
+  }
