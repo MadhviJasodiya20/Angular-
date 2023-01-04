@@ -1,0 +1,244 @@
+
+<mat-sidenav-container fullscreen>
+
+
+  <div>
+
+    
+  
+  <mat-stepper  [linear]="isLinear" orientation="vertical" #stepper>
+    
+ 
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Basic Information</ng-template>
+     
+          <div class="form">
+
+            <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <mat-icon matSuffix class="material-icon">person</mat-icon>
+          <input matInput placeholder="First name" formControlName="name" required>
+          <mat-error>*Name is required</mat-error>
+        </mat-form-field>
+        </div>
+
+        <div>
+        <mat-form-field appearance="fill">
+          <mat-label>UserName</mat-label>
+          <mat-icon matSuffix class="material-icon">username</mat-icon>
+          <input matInput placeholder="Enter Username" formControlName = "username" required>
+          <mat-error >You must enter a atleat 6 character</mat-error>
+      </mat-form-field>
+
+    </div>
+
+        <div>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <mat-icon matSuffix class="material-icon">email</mat-icon>
+        <input matInput placeholder="example@mail.com" formControlName="email" required>
+        <mat-error>*Email is required</mat-error>
+      </mat-form-field>
+      </div>
+
+   
+
+    <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName = "password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error> Valid Password only Alphabet & numeric </mat-error>
+  </mat-form-field>
+</div>
+
+    <div>
+  <mat-form-field appearance="fill">
+      <mat-label>father Name</mat-label>
+      <mat-icon matSuffix class="material-icon">name</mat-icon>
+      <input matInput placeholder="Father name" formControlName="fname" required>
+      <mat-error>Please enter valid name</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+      <mat-form-field appearance="fill">
+          <mat-label>Mother Name</mat-label>
+          <mat-icon matSuffix class="material-icon">name</mat-icon>
+          <input matInput placeholder="Mother name" formControlName="mname" required>
+          <mat-error> Please enter valid name </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div>
+
+        <h3>Gender:</h3>
+
+        <mat-radio-group formControlName="gender" aria-label="Select an option">
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-icon matSuffix class="material-icon">male</mat-icon>
+
+          <mat-radio-button value="female">Female</mat-radio-button>
+          <mat-icon matSuffix class="material-icon">female</mat-icon>
+          <!-- <mat-radio-button value="other">Other</mat-radio-button>
+          <mat-icon matSuffix class="material-icon">other</mat-icon> -->
+        </mat-radio-group>
+        <mat-error>Please enter a value</mat-error>
+      </div>
+      <br>
+    
+      <div>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Date of Birth</mat-label>
+          <input formControlName="dob" matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Please enter dob</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Mobile Number</mat-label>
+          <mat-icon matSuffix class="material-icon">phone</mat-icon>
+          <input formControlName="mobile" matInput placeholder="Enter Mobile No.">
+          <!-- <mat-icon matSuffix>phone</mat-icon> -->
+          <mat-error>Please enter mobile no.</mat-error>
+        </mat-form-field>
+
+      </div>
+
+          <div class="btn">
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </div>
+      </form>
+      </mat-step>
+    
+    
+      
+      <mat-step   [stepControl]="secondFormGroup" label="Bank Details" optional>
+
+        <form [formGroup]="secondFormGroup">
+
+          <div class="form">
+
+            <div>
+            <mat-form-field appearance="fill">
+                <mat-label> Full Name</mat-label>
+                <mat-icon matSuffix>name</mat-icon>
+                <input matInput placeholder="Full Name" formControlName="fullname" >
+              </mat-form-field>
+            </div>
+
+            <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Bank Acoount Number</mat-label>
+            <mat-icon matSuffix>bank</mat-icon>
+            <input matInput placeholder="Bank Account Number" formControlName="bno">
+          </mat-form-field>
+        </div>
+
+        <div>
+        <mat-form-field appearance="fill">
+            <mat-label> Bank Name</mat-label>
+            <mat-icon matSuffix>bank</mat-icon>
+            <input matInput placeholder="Bank Name" formControlName="bname" >
+          </mat-form-field>
+        </div>
+
+        <div>
+    <mat-form-field appearance="fill">
+        <mat-label>IFSC code</mat-label>
+        <mat-icon matSuffix>ifsc</mat-icon>
+        <input matInput placeholder="IFSC code" formControlName="ifsc" >
+      </mat-form-field>
+    </div>
+
+    <div>
+    <h3>You have internet banking yes/no:</h3>
+    <mat-radio-group formControlName="ib" aria-label="Select an option">
+      <mat-radio-button value="yes">Yes</mat-radio-button><br>
+      <mat-radio-button value="no">no</mat-radio-button><br>    
+    </mat-radio-group>
+  </div>
+
+  <div>
+    <h3>You have mobile banking yes/no:</h3>
+
+    <mat-radio-group formControlName="mb" aria-label="Select an option">
+      <mat-radio-button value="yes">Yes</mat-radio-button><br>
+      <mat-radio-button value="no">No</mat-radio-button><br>    
+    </mat-radio-group>
+
+    </div>
+          <div>
+            <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" matStepperNext>Next</button>
+          </div>
+
+        </div>
+        
+        </form>
+      </mat-step>
+
+      <mat-step  [stepControl]="thirdFormGroup" label="Communication Address">
+
+        <form [formGroup]="thirdFormGroup">
+
+          <div class="form">
+
+            <div>
+            <mat-form-field appearance="fill">   
+                <mat-label> Present Address</mat-label>
+                <input matInput placeholder="Present Address" formControlName="presentAddrs" required>
+                <mat-error>Please enter present address</mat-error>
+              </mat-form-field>
+
+              <p style="color: red;">Word Limit Remaining {{60-wc}}</p>
+            </div>
+
+            <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Permanent Address</mat-label>
+            <input matInput placeholder="Permanent Address" formControlName="permanentAddrs" required>
+            <mat-error>Please enter a valid permanent address</mat-error>
+          </mat-form-field>
+
+          <p style="color: red;">Word Limit Remaining {{60-wc1}}</p>
+          </div>
+          <!-- <button type="submit" mat-raised-button color="primary">Submit</button> -->
+
+            <div>
+              <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" (click)="onSubmit()" >Submit</button>
+              <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+          </div>
+        </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Submitted</ng-template>
+        <p>Thanks for submitting form.</p>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      
+
+      </mat-step>
+      <router-outlet></router-outlet>
+    </mat-stepper>
+
+  </div>
+ 
+</mat-sidenav-container>

@@ -1,0 +1,20 @@
+.form{
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 30px;
+    background-color: lightblue;
+    background-size: cover;
+    padding: 10px;
+}
+/*     
+    animation: mymove 5s infinite;
+}
+ @keyframes mymove {
+        from {background-color: rgba(255, 0, 0, 0.345);}
+        to {background-color: rgba(0, 0, 255, 0.393);}
+} */
+
+.btn{
+    background-color: rgb(230, 60, 8);
+}
